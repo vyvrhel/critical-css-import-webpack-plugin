@@ -68,11 +68,13 @@ Entry names for each critical id can be changed by [criticals options](#critical
 
 ####  `source` 
 {String} (*Required*)
+
 Path to source Less/Sass file.  
 
 ---
 ####  `criticals`
 {String|Object|Array} (*Required*)
+
 Array of critical CSS objects:
 ```js
 [
@@ -89,7 +91,7 @@ Array of critical CSS objects:
 - `id` {String} (*Required*)  
 String identifier of critical CSS (used in CSS comment).
 
-- `entry` {String} (Default:  *\<id\>.critical*)
+- `entry` {String} (Default:  *\<id\>.critical*)  
 Webpack entry name.
  
 Possible shortcuts:
@@ -108,6 +110,7 @@ Possible shortcuts:
 ---
 ####  `deleteJsOutput`
 {Boolean} (Default: *true*)
+
 If enabled then  *.js* output file that is generated together with *.css* file by webpack will be deleted.
 
 ---
