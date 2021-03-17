@@ -9,7 +9,7 @@ npm install @vyvrhel/critical-css-import-webpack-plugin --save-dev
 ```
 ## Usage
 
-Register plugin in webpack configuration with proper [options](#-options) (set **source** file and one **critical id** at least):
+Register plugin in webpack configuration with proper [options](#options) (set **source** file and one **critical id** at least):
 
 **webpack.config.js**
 ```js
