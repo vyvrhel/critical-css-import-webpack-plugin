@@ -1,0 +1,36 @@
+{
+  "name": "@vyvrhel/critical-css-import-webpack-plugin",
+  "version": "0.1.0",
+  "description": "Webpack plugin that creates critical CSS from flagged imports in SASS/Less file",
+  "main": "./index.js",
+  "scripts": {
+    "lint": "eslint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vyvrhel/critical-css-import-webpack-plugin.git"
+  },
+  "author": "Martin Bulin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vyvrhel/critical-css-import-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/vyvrhel/critical-css-import-webpack-plugin#readme",
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "webpack-virtual-modules": "^0.4.2"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "critical",
+    "critical-css",
+    "sass",
+    "less",
+    "import"
+  ]
+}
