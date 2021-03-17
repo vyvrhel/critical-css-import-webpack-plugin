@@ -1,7 +1,7 @@
 # Critical CSS Import Webpack Plugin
-Webpack plugin that simplifies **manual maintaining of critical CSS(s)**. Plugin gets critical `@import`s from given Sass/Less file and adds them as a separate entry. Critical `@import`s are flagged by [special comment](#-comment-syntax).
+Webpack plugin that simplifies **manual maintaining of critical CSS(s)**. Plugin gets critical `@import`s from given Sass/Less file and adds them as a separate entry. Critical `@import`s are flagged by [special comment](#comment-syntax).
 
- [Install](#-install) / [Usage](#-usage) / [Options](#-options) / [Use case](#-use-case)
+ [Install](#install) / [Usage](#usage) / [Options](#options) / [Use case](#use-case)
 
 ## Install
 ```sh
@@ -26,7 +26,7 @@ module.exports = {
     ],
 };
 ```
-Flag critical `@import`s by adding [special comment](#-comment-syntax) with critical CSS ids:
+Flag critical `@import`s by adding [special comment](#comment-syntax) with critical CSS ids:
 
 **main.scss**
 ```scss
@@ -43,7 +43,7 @@ Flag critical `@import`s by adding [special comment](#-comment-syntax) with crit
  `critical: <critical id> | all [, <critical id>]*`
 - Notation `critical:`  followed by comma-separated list of **critical ids**.
 - For including `@import` in all critical CSS use keyword **all** instead of critical id.
-- Comment format can be change by [pattern option](#-pattern).
+- Comment format can be change by [pattern option](#pattern).
 
 ### Result
 Now, depending on your webpack workflow, application should output files like **home.critical.css**, **blog.critical.css**
@@ -62,7 +62,7 @@ module.exports = {
   // ...
 };
 ```
-Entry names for each critical id can be changed by [criticals options](#-criticals).
+Entry names for each critical id can be changed by [criticals options](#criticals).
 
 ## Options
 
