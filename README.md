@@ -199,12 +199,12 @@ const CriticalCssImportPlugin = require('critical-css-import-webpack-plugin');
 
 module.exports = {
   entry: './main.scss',
-    plugins: [
-      new CriticalCssImportPlugin ({
-        source: './main.scss',
-        criticals: ['home', 'blog', 'article'],
-      })
-    ]
+  plugins: [
+    new CriticalCssImportPlugin ({
+      source: './main.scss',
+      criticals: ['home', 'blog', 'article'],
+    })
+  ],
 };
 ```
 
