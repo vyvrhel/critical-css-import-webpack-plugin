@@ -195,7 +195,7 @@ Maintaining these multiple files can be annoying, therefore plugin allows us to 
 
 **webpack.config.js**  
 ```js
-const CriticalCssImportPlugin = require('critical-css-import-webpack-plugin');
+const CriticalCssImportPlugin = require('@vyvrhel/critical-css-import-webpack-plugin');
 
 module.exports = {
   entry: './main.scss',
