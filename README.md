@@ -22,7 +22,7 @@ module.exports = {
     new CriticalCssImportPlugin ({
       source: 'main.scss',
       criticals: ['home', 'blog', 'article'], // list of critical ids
-     }),
+    }),
   ],
 };
 ```
