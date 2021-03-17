@@ -17,13 +17,13 @@ const CriticalCssImportPlugin = require('@vyvrhel/critical-css-import-webpack-pl
 
 module.exports = {
   // ..
-    plugins: [
-      // ...
-        new CriticalCssImportPlugin ({
+  plugins: [
+    // ...
+    new CriticalCssImportPlugin ({
       source: 'main.scss',
       criticals: ['home', 'blog', 'article'], // list of critical ids
-        }),
-    ],
+     }),
+  ],
 };
 ```
 Flag critical `@import`s by adding [special comment](#comment-syntax) with critical CSS ids:
@@ -200,10 +200,10 @@ const CriticalCssImportPlugin = require('critical-css-import-webpack-plugin');
 module.exports = {
   entry: './main.scss',
     plugins: [
-        new CriticalCssImportPlugin ({
-            source: './main.scss',
-            criticals: ['home', 'blog', 'article'],
-        })
+      new CriticalCssImportPlugin ({
+        source: './main.scss',
+        criticals: ['home', 'blog', 'article'],
+      })
     ]
 };
 ```
