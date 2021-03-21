@@ -24,6 +24,9 @@
   "dependencies": {
     "webpack-virtual-modules": "^0.4.2"
   },
+  "peerDependencies": {
+    "webpack": "5"
+  },
   "keywords": [
     "webpack",
     "plugin",
