@@ -54,8 +54,13 @@ class CriticalCssImportPlugin {
       const src = this.options.source;
       const virtualSrc = `${path.dirname(src)}/~${critical.id}-critical${path.extname(src)}`;
       virtualModulesOptions[virtualSrc] = this.stripUncriticalImports(src, critical.id);
-      this.entries[critical.entry] = { import: [virtualSrc] };
+      this.entries[critical.entry] = compiler.webpack || false
+        ? { import: [virtualSrc] } // webpack 5
+        : virtualSrc; // webpack 4
     });
+    if (typeof compiler.options.entry === 'string') {
+      compiler.options.entry = { main: compiler.options.entry };
+    }
     compiler.options.entry = { ...compiler.options.entry, ...this.entries };
     compiler.options.plugins.push(new VirtualModulesPlugin(virtualModulesOptions));
 
@@ -63,7 +68,7 @@ class CriticalCssImportPlugin {
     if (this.options.deleteJsOutput) {
       compiler.hooks.compilation.tap(PLUGIN_NAME, (compilation) => {
         compilation.hooks.additionalAssets.tap(PLUGIN_NAME,
-          () => this.deleteJsOutput(compilation));
+          () => this.deleteJsOutput(compilation, compiler));
       });
     }
   }
@@ -76,13 +81,16 @@ class CriticalCssImportPlugin {
       .join('\n');
   }
 
-  deleteJsOutput(compilation) {
+  deleteJsOutput(compilation, compiler) {
     compilation.chunks.forEach((chunk) => {
       if (Object.keys(this.entries).includes(chunk.name)) {
         chunk.files.forEach((filename) => {
           if (/\.js?(\?[^.]*)?$/.test(filename)) {
-            compilation.deleteAsset(filename);
-            chunk.files.delete(filename);
+            if (compiler.webpack || false) { // webpack 5
+              compilation.deleteAsset(filename);
+              chunk.files.delete(filename);
+            }
+            delete compilation.assets[filename]; // webpack 4
           }
         });
       }
