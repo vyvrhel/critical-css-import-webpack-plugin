@@ -46,7 +46,7 @@ class CriticalCssImportPlugin {
     this.entries = {};
     this.options.criticals.forEach((critical) => {
       const src = this.options.source;
-      const virtualSrc = `${path.dirname(src)}/tmp-${critical.id}-critical${path.extname(src)}`;
+      const virtualSrc = `${path.dirname(src)}/~${critical.id}-critical${path.extname(src)}`;
       virtualModulesOptions[virtualSrc] = this.stripUncriticalImports(src, critical.id);
       this.entries[critical.entry] = { import: [virtualSrc] };
     });
