@@ -1,11 +1,20 @@
 const path = require('path');
 const fs = require('fs');
+const { validate } = require('schema-utils');
 const VirtualModulesPlugin = require('webpack-virtual-modules');
 
 const PLUGIN_NAME = 'CriticalCssImportPlugin';
 
+const schema = require('./schemas/CriticalCssImportPlugin.json');
+
 class CriticalCssImportPlugin {
   constructor(options = {}) {
+    // validate options
+    validate(schema, options, {
+      name: PLUGIN_NAME,
+      baseDataPath: 'options',
+    });
+
     // merge user options to default options
     this.options = {
       ...{
@@ -30,13 +39,10 @@ class CriticalCssImportPlugin {
     }
     this.options.criticals = this.options.criticals
       .map((v) => {
-        if (typeof v === 'string' && v !== '') {
+        if (typeof v === 'string') {
           return { id: v, entry: `${v}.critical` };
         }
-        if (typeof v === 'object' && v) {
-          return { id: v.id, entry: v.entry || `${v.id}.critical` };
-        }
-        throw new Error('Invalid critical option');
+        return { id: v.id, entry: v.entry || `${v.id}.critical` };
       });
   }
 

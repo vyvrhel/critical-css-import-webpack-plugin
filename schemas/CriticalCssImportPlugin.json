@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "description": "Path to Sass/Less source file.",
+      "type": "string",
+      "minLength": 1
+    },
+    "criticals": {
+      "description": "Critical CSSs.",
+      "anyOf": [
+        { "$ref": "#/definitions/criticalId" },
+        { "$ref": "#/definitions/criticalObject" },
+        {
+          "type": "array",
+          "minLength": 1,
+          "items": {
+            "anyOf": [
+              { "$ref": "#/definitions/criticalObject" },
+              { "$ref": "#/definitions/criticalId" }
+            ]
+          }
+        }
+      ]
+    },
+    "pattern": {
+      "description": "Function returning regular expression used to filter out @imports from source file."
+    },
+    "deleteJsOutput": {
+      "description": "If true, related js output file(s) will be deleted.",
+      "type": "boolean"
+    },
+    "encoding": {
+      "description": "Source file encoding",
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [ "source", "criticals" ],
+  "definitions": {
+    "criticalId": {
+      "description": "The unique identifier for a critical CSS.",
+      "type": "string",
+      "minLength": 1
+    },
+    "criticalObject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/criticalId"
+        },
+        "entry": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [ "id" ]
+    }
+  }
+}
