@@ -73,7 +73,6 @@ Type: `{String}` Required
 
 Path to source Less/Sass file.  
 
----
 ####  `criticals`
 Type: `{Array|Object|String}` Required
 
@@ -111,20 +110,17 @@ Possible shortcuts:
 { id: 'critical-name', entry : 'entry-name' }
 ```
 
----
 ####  `deleteJsOutput`
 Type: `{Boolean}` Default: `true`
 
 If enabled then  *.js* output file that is generated together with *.css* file by webpack will be deleted.
 
----
 ####  `pattern`
 Type: `{Function}` Default: 
 ```js 
 (criticalId) => new RegExp(`critical: ([a-zA-Z0-9\_\-]*, )*(all|${criticalId})(,|;|$)`, 'g')
 ```
 Function returning regular expression used to filter out `@import`s from source file.
-
 
 ## Use Case
 
