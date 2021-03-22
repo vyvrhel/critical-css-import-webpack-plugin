@@ -1,6 +1,6 @@
 {
   "name": "@vyvrhel/critical-css-import-webpack-plugin",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Webpack plugin that creates critical CSS from flagged imports in Sass/Less file.",
   "main": "./index.js",
   "scripts": {
