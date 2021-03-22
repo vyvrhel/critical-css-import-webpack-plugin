@@ -4,7 +4,8 @@
   "description": "Webpack plugin that creates critical CSS from flagged imports in Sass/Less file.",
   "main": "./index.js",
   "scripts": {
-    "lint": "eslint index.js"
+    "lint": "eslint index.js",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
