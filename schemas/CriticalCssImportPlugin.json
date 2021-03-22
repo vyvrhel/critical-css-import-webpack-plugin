@@ -50,6 +50,7 @@
           "$ref": "#/definitions/criticalId"
         },
         "entry": {
+          "description": "Webpack entry name.",
           "type": "string",
           "minLength": 1
         }
