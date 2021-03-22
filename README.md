@@ -2,7 +2,7 @@
 # Critical CSS Import Webpack Plugin
 Webpack plugin that simplifies **manual maintaining of critical CSS(s)**. Plugin gets critical `@import`s from given Sass/Less file and adds them as a separate entry. Critical `@import`s are flagged by [special comment](#comment-syntax).
 
- [Install](#install) / [Usage](#usage) / [Options](#options) / [Use case](#use-case)
+ [Install](#install) / [Usage](#usage) / [Options](#options) / [Use case](#use-case) / [Notes](#notes)
 
 ## Install
 ```sh
